@@ -102,7 +102,7 @@ img {
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: var(--dark-bg);
+    color: var(--font-heading);
 }
 
 .text-center {
@@ -255,7 +255,7 @@ img {
     min-height: 600px;
     display: flex;
     align-items: center;
-    background: url('hero-bg.png') center/cover no-repeat;
+    background: url('img/hero-bg.png') center/cover no-repeat;
 }
 
 .hero-overlay {
@@ -454,6 +454,34 @@ img {
     transform: translateY(-10px);
     box-shadow: var(--shadow-lg);
     border-bottom-color: var(--primary-gold);
+}
+
+.team-image-frame,
+.team-image-placeholder {
+    min-height: 260px;
+    border-bottom: 1px solid rgba(221, 166, 60, 0.25);
+}
+
+.team-image-frame {
+    background-color: var(--dark-bg);
+}
+
+.team-photo {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    object-position: center top;
+}
+
+.team-image-placeholder {
+    background:
+        linear-gradient(135deg, rgba(221, 166, 60, 0.18), rgba(26, 26, 26, 0.88)),
+        linear-gradient(135deg, var(--dark-grey), var(--dark-bg));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 5rem;
 }
 
 .team-content {
