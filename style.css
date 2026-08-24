@@ -748,4 +748,30 @@ img {
         flex-direction: column;
         justify-content: center;
     }
+
+    /* Mobile Carousel for Services and Team */
+    .services-grid,
+    .team-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        scroll-padding: 20px;
+        -webkit-overflow-scrolling: touch;
+        gap: 20px;
+        scrollbar-width: none;
+    }
+
+    .services-grid::-webkit-scrollbar,
+    .team-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .services-grid > *,
+    .team-grid > * {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        max-width: 85%;
+    }
 }
