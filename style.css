@@ -399,12 +399,6 @@ img {
     border-bottom: 3px solid transparent;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-    border-bottom-color: var(--primary-gold);
-}
-
 .service-icon {
     width: 60px;
     height: 60px;
@@ -419,9 +413,17 @@ img {
     transition: var(--transition);
 }
 
-.service-card:hover .service-icon {
-    background-color: var(--primary-gold);
-    color: var(--text-light);
+@media (hover: hover) and (pointer: fine) {
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+        border-bottom-color: var(--primary-gold);
+    }
+
+    .service-card:hover .service-icon {
+        background-color: var(--primary-gold);
+        color: var(--text-light);
+    }
 }
 
 .service-card h3 {
@@ -450,10 +452,12 @@ img {
     border-bottom: 3px solid transparent;
 }
 
-.team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-    border-bottom-color: var(--primary-gold);
+@media (hover: hover) and (pointer: fine) {
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+        border-bottom-color: var(--primary-gold);
+    }
 }
 
 .team-image-frame,
@@ -755,12 +759,15 @@ img {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
+        overflow-y: hidden;
         scroll-snap-type: x mandatory;
-        padding-bottom: 20px;
-        scroll-padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 25px;
+        scroll-padding: 0 20px;
         -webkit-overflow-scrolling: touch;
         gap: 20px;
         scrollbar-width: none;
+        align-items: stretch;
     }
 
     .services-grid::-webkit-scrollbar,
@@ -771,7 +778,33 @@ img {
     .services-grid > *,
     .team-grid > * {
         flex: 0 0 85%;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         max-width: 85%;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .services-grid .service-card,
+    .team-grid .team-member {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .service-card:hover,
+    .team-member:hover {
+        transform: none !important;
+    }
+
+    .team-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
 }
