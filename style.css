@@ -626,6 +626,7 @@ img {
     mix-blend-mode: multiply;
     filter: grayscale(100%) opacity(0.55);
     transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 10%;
 }
 
 @media (hover: hover) and (pointer: fine) {
