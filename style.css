@@ -28,7 +28,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -36,7 +35,7 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--text-light);
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 h1,
@@ -753,6 +752,24 @@ img {
         justify-content: center;
     }
 
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    /* Disable layout shift entrance transforms on mobile */
+    .fade-in-up,
+    .slide-in-left,
+    .slide-in-right {
+        transform: none !important;
+        opacity: 0;
+        transition: opacity 0.5s ease !important;
+    }
+
+    .in-view {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
     /* Mobile Carousel for Services and Team */
     .services-grid,
     .team-grid {
@@ -761,11 +778,15 @@ img {
         overflow-x: auto;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
+        scroll-snap-stop: normal;
+        overscroll-behavior-x: contain;
+        overscroll-behavior-y: auto;
+        touch-action: pan-x pan-y;
         padding-top: 10px;
         padding-bottom: 25px;
         scroll-padding: 0 20px;
         -webkit-overflow-scrolling: touch;
-        gap: 20px;
+        gap: 16px;
         scrollbar-width: none;
         align-items: stretch;
     }
@@ -778,16 +799,38 @@ img {
     .services-grid > *,
     .team-grid > * {
         flex: 0 0 85%;
-        scroll-snap-align: start;
+        min-width: 85%;
         max-width: 85%;
+        scroll-snap-align: start;
+        scroll-margin: 0 20px;
         opacity: 1 !important;
         transform: none !important;
         transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
     }
 
-    .services-grid .service-card,
+    .services-grid .service-card {
+        padding: 30px 24px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        box-sizing: border-box;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .services-grid .service-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+
     .team-grid .team-member {
         height: 100%;
         display: flex;
@@ -795,16 +838,54 @@ img {
         opacity: 1 !important;
         transform: none !important;
         transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+        box-sizing: border-box;
+    }
+
+    .team-image-frame,
+    .team-image-placeholder {
+        height: 200px;
+        min-height: 200px;
+        font-size: 4rem;
+    }
+
+    .team-photo {
+        height: 200px;
+    }
+
+    .team-content {
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .team-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+
+    .team-title {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+    }
+
+    .team-details {
+        font-size: 0.9rem;
+        flex: 1;
+        overflow-y: auto;
+        max-height: 260px;
+        padding-right: 5px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .team-details p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 
     .service-card:hover,
     .team-member:hover {
         transform: none !important;
-    }
-
-    .team-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
     }
 }
