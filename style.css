@@ -591,6 +591,55 @@ img {
     border-color: var(--primary-gold);
     background-color: var(--text-light);
 }
+/* ----- Clients / Trusted By Section ----- */
+.clients {
+    background-color: var(--text-light);
+}
+
+.clients-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.client-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-sm);
+    border-radius: 12px;
+    padding: 24px 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 120px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.client-logo {
+    max-width: 100%;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .client-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-gold);
+    }
+
+    .client-card:hover .client-logo {
+        transform: scale(1.05);
+    }
+}
 
 /* ----- Footer ----- */
 .footer {
@@ -885,7 +934,25 @@ img {
     }
 
     .service-card:hover,
-    .team-member:hover {
+    .team-member:hover,
+    .client-card:hover {
         transform: none !important;
+    }
+
+    /* Clients Mobile */
+    .clients-grid {
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .client-card {
+        width: 140px;
+        height: 90px;
+        padding: 16px 20px;
+        border-radius: 8px;
+    }
+
+    .client-logo {
+        max-height: 50px;
     }
 }
