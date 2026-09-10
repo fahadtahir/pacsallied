@@ -619,7 +619,7 @@ img {
 
 .client-logo {
     max-width: 170px;
-    max-height: 65px;
+    max-height: 100px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -943,8 +943,8 @@ img {
         overscroll-behavior-x: contain;
         overscroll-behavior-y: auto;
         touch-action: pan-x pan-y;
-        padding-top: 15px;
-        padding-bottom: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         scroll-padding: 0;
         -webkit-overflow-scrolling: touch;
         gap: 0;
@@ -988,7 +988,7 @@ img {
     }
 
     .client-logo {
-        max-height: 65px;
+        max-height: 100px;
         max-width: 180px;
         mix-blend-mode: multiply;
         filter: grayscale(100%) opacity(0.65);
