@@ -601,43 +601,37 @@ img {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 20px;
+    gap: 60px;
+    margin-top: 30px;
 }
 
 .client-card {
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: var(--shadow-sm);
-    border-radius: 12px;
-    padding: 24px 36px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 12px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 220px;
-    height: 120px;
     transition: var(--transition);
     text-decoration: none;
 }
 
 .client-logo {
-    max-width: 100%;
-    max-height: 70px;
+    max-width: 170px;
+    max-height: 65px;
     width: auto;
     height: auto;
     object-fit: contain;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    mix-blend-mode: multiply;
+    filter: grayscale(100%) opacity(0.55);
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .client-card:hover {
-        transform: translateY(-6px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary-gold);
-    }
-
     .client-card:hover .client-logo {
-        transform: scale(1.05);
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.08);
     }
 }
 
@@ -939,20 +933,64 @@ img {
         transform: none !important;
     }
 
-    /* Clients Mobile */
+    /* Clients Mobile Carousel - Snap One Logo at a Time */
     .clients-grid {
-        gap: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+        overscroll-behavior-y: auto;
+        touch-action: pan-x pan-y;
+        padding-top: 15px;
+        padding-bottom: 25px;
+        scroll-padding: 0;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        scrollbar-width: none;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .clients-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .clients-grid > * {
+        flex: 0 0 100%;
+        min-width: 100%;
+        max-width: 100%;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        display: flex;
         justify-content: center;
+        align-items: center;
+        opacity: 1 !important;
+        transform: none !important;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 15px 20px;
+        box-sizing: border-box;
     }
 
     .client-card {
-        width: 140px;
-        height: 90px;
-        padding: 16px 20px;
-        border-radius: 8px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .client-logo {
-        max-height: 50px;
+        max-height: 65px;
+        max-width: 180px;
+        mix-blend-mode: multiply;
+        filter: grayscale(100%) opacity(0.65);
     }
 }
